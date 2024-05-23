@@ -27,7 +27,7 @@ make install
 To use the web crawler, run the following command:
 
 ```bash
-python main.py --url <url> --depth <depth> --output <output> --verbose
+python main.py --url <url> --depth <depth> --filter <filter> --output <output> --verbose
 ```
 
 ## Help
@@ -76,3 +76,25 @@ To run the formatter, run the following command:
 ```bash
 make format
 ```
+
+## Docker version
+
+To build the docker image, run the following command:
+
+```bash
+docker build -t web-crawler .
+```
+
+To run the docker image, run the following command:
+
+```bash
+docker run -it web-crawler main.py --url <url> --depth <depth> --filter <filter> --output <output> --verbose <verbose>
+```
+
+For example:
+
+```bash
+docker run -it web-crawler main.py --url https://www.example.com --depth 2 --filter .png --verbose True
+```
+
+make sure to add `--verbose=True` to see the output
