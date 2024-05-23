@@ -4,7 +4,7 @@ Module to crawl given URL and extract all the links from the page upto a given d
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin
 import time
 from tqdm import tqdm
 
@@ -23,7 +23,7 @@ class WebCrawler:
         return [link for link in links if link.endswith(self.file_type)]
 
     def crawl(self):
-        with open(self.output_path, "w") as output_file:
+        with open(self.output_path, "w", encoding="utf-8") as output_file:
             job_description = self.get_job_description()
             output_file.write(job_description)
             if self.verbose:
@@ -39,7 +39,7 @@ class WebCrawler:
         self.visited_urls.add(url)
 
         try:
-            response = requests.get(url)
+            response = requests.get(url,timeout=20)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, "html.parser")
             links = [link.get("href") for link in soup.find_all("a", href=True)]

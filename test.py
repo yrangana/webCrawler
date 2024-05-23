@@ -37,7 +37,7 @@ def test_output_file(crawler_instance):
     crawler_instance.crawl()
 
     # Read the output file
-    with open(crawler_instance.output_path, "r") as output_file:
+    with open(crawler_instance.output_path, "r", encoding="utf-8") as output_file:
         output = output_file.read()
 
     # Assertions
