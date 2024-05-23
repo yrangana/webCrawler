@@ -39,7 +39,7 @@ class WebCrawler:
         self.visited_urls.add(url)
 
         try:
-            response = requests.get(url,timeout=20)
+            response = requests.get(url,timeout=50)
             response.raise_for_status()
             soup = BeautifulSoup(response.text, "html.parser")
             links = [link.get("href") for link in soup.find_all("a", href=True)]
