@@ -1,0 +1,9 @@
+Job Description:
+URL: https://google.com
+Depth: 1
+Filter: .png
+Verbose: False
+Output Path: test_output.txt
+====================
+Crawling https://google.com
+Found image: https://google.com/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png
