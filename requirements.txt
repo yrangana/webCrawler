@@ -3,3 +3,5 @@ black==24.4.2
 pylint==3.2.2
 pytest==8.2.1
 tqdm==4.66.4
+requests==2.32.2
+bs4==0.0.2
